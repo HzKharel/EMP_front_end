@@ -1,0 +1,114 @@
+<head>
+    <title>EMP</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <script type="text/javascript" src="scripts/cipher_desc.js"></script>
+    <script type="text/javascript" src="scripts/Rot13.js"></script>
+    <script type="text/javascript" src="scripts/Autokey.js"></script>
+    <script type="text/javascript" src="scripts/VignereCipher.js"></script>
+    <script type="text/javascript" src="scripts/morsecode.js"></script>
+    <script type="text/javascript" src="scripts/binary.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+
+</head>
+
+<body>
+    <div class="header" id="myHeader">
+        <h2 align="left" style="font-family: 'Roboto-Light'">Encoded Messaging Platform </h2>
+    </div>
+
+    <div class="sidebar">
+        <a class="active" href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/index.html">Encoder</a>
+        <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/guesscountry.html">Guess The Country</a>
+        <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/report/web_tech_cw1_report.pdf">View Report</a>
+
+    </div>
+    <!-- ALL CODE GOES HERE -->
+    <div class="main" id="wrapper">
+
+        <div class="row">
+            <div class="column">
+
+
+
+                <div class="row">
+                    <div class="column" style="width: 87%; padding-right: 3%">
+                        <div class="dropdown">
+                            <button class="dropbtn" id="dropdownSelector">Select Encoder</button>
+                            <div class="dropdown-content">
+
+                                <a href="#" onclick="set_cipher('rot13');">ROT 13</a>
+                                <a href="#" onclick="set_cipher('vignere');">Vignere Cipher</a>
+                                <a href="#" onclick="set_cipher('autokey');">Autokey Cipher</a>
+                                <a href="#" onclick="set_cipher('morse');">Morse Code</a>
+                                <a href="#" onclick="set_cipher('binary');">Binary</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column" style="width: 10%; alignment: right">
+                        <img src="assets/mic.png" id="microphone" onclick="startRecignition()" style="max-width: 50px; max-height: 50px">
+                    </div>
+
+
+
+
+                </div>
+
+                <div id="InputField">
+                    <textarea rows="10" class="blockText" style="; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);" autofocus id="encodeField"></textarea>
+                    <br>
+                    <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="encodedMessageKey" maxlength="100" placeholder="Cipher Key (if applicable)"></textarea>
+
+                    <div class="btn-group">
+                        <button type="button" style=" margin-top: 10px; margin-right: 2%; margin-bottom: 20px; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);" class="block" onclick="encode(false)" id="encodeButton">Encode</button>
+                        <button type="button" class="block" style=" margin-top: 10px;" onclick="encode(true)" id="decodeButton">Decode</button>
+                    </div>
+
+
+                    <textarea rows="10" class="blockText" autofocus id="encodedMessage" style="display:none; margin-bottom: 20px;  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);" readonly></textarea>
+                    <label id= "morse_chk" class="container" style="margin-top: 30px; width: 300px; display: none">Play Audio (If Available)
+                        <input id= "morse_chk_btn" onclick="morse_audio()" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+
+                </div>
+
+            </div>
+            <div class="column">
+                <div style="margin-left: 20px">
+                    <h1 style="margin: 0"> Encoded Messaging Platform</h1>
+                    <p align="center">Designed and developed by Hari Kharel. Edinburgh Napier University.</p>
+                    <hr>
+                    <br>
+                    <p id="cipherDesc">
+                        This Web Application was developed as past of Web Technologies module coursework.
+                        Technologies used include for HTML for markup, CSS for design and Javascript for the logic.
+
+                        <br><br>
+
+                        Select the cipher you want to use from the dropdown box. Type or paste in what
+                        you want to encode (or decode). If the cipher you chose requires a key, enter it in the Key field,
+                        else, leave it blank. Press the encode or the decode button and a new box will appear with the
+                        encoded/decoded message.
+
+                        <br><br>
+
+                        
+                    </p>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+       
+    </div>
+
+   
+</body>
