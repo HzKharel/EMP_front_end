@@ -3,14 +3,11 @@
 <head>
     <title>EMP</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript" src="scripts/apiScripts/UserPortal.js"></script>
+    <script type="text/javascript">
+        checkSession();
+    </script>
 
-    <script type="text/javascript" src="scripts/cipher_desc.js"></script>
-    <script type="text/javascript" src="scripts/Rot13.js"></script>
-    <script type="text/javascript" src="scripts/Autokey.js"></script>
-    <script type="text/javascript" src="scripts/VignereCipher.js"></script>
-    <script type="text/javascript" src="scripts/morsecode.js"></script>
-    <script type="text/javascript" src="scripts/binary.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
 
 </head>
 
@@ -23,12 +20,15 @@
     <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/index.html">Encoder</a>
     <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/guesscountry.html">Guess The Country</a>
     <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/report/web_tech_cw1_report.pdf">View Report</a>
+    <hr>
+    <a href="">My Profile</a>
+    <a href="">Messenger</a>
 
 </div>
 <!-- ALL CODE GOES HERE -->
 <div class="main" id="wrapper">
 
-
+<div class="center">
         <h1 style="font-family: Roboto-Light">Register</h1>
         <hr>
         <div class="row">
@@ -36,25 +36,25 @@
                 <p style="font-family: Roboto;">User Name: </p>
             </div>
             <div class="column">
-                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="usernameReg"></textarea>
+                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="username"></textarea>
             </div>
             <div class="column">
                 <p style="font-family: Roboto;">Password: </p>
             </div>
             <div class="column">
-                <input type="password"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="passwordreg"></textarea>
+                <input type="password"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="password"></textarea>
             </div>
             <div class="column">
                 <p style="font-family: Roboto;">First Name: </p>
             </div>
             <div class="column">
-                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="firstName"></textarea>
+                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="first_name"></textarea>
             </div>
             <div class="column">
                 <p style="font-family: Roboto;">Last Name: </p>
             </div>
             <div class="column">
-                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="lastName"></textarea>
+                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="last_name"></textarea>
             </div>
             <div class="column">
                 <p style="font-family: Roboto;">Email: </p>
@@ -65,8 +65,15 @@
 
         </div>
 
-        <button class="block" style="width: 100%"> Register </button>
+        <button class="block" style="width: 100%" onclick="register()"> Register </button>
+    <br>
+    <br>
+    <button class="block" style="width: 100%" onclick="window.location.href='Login.html'">Already Have An Account? Log In Here.</button>
+    <br>
+    <br>
+    <p style="font-family: Roboto;" id="status"></p>
     </div>
+</div>
 </div>
 
 

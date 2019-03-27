@@ -1,15 +1,10 @@
 <head>
     <title>EMP</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-
-    <script type="text/javascript" src="scripts/cipher_desc.js"></script>
-    <script type="text/javascript" src="scripts/Rot13.js"></script>
-    <script type="text/javascript" src="scripts/Autokey.js"></script>
-    <script type="text/javascript" src="scripts/VignereCipher.js"></script>
-    <script type="text/javascript" src="scripts/morsecode.js"></script>
-    <script type="text/javascript" src="scripts/binary.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
-
+    <script type="text/javascript" src="scripts/apiScripts/UserPortal.js"></script>
+    <script type="text/javascript">
+        checkSession();
+    </script>
 </head>
 
 <body>
@@ -24,10 +19,10 @@
 
 </div>
 <!-- ALL CODE GOES HERE -->
-<div class="main" id="wrapper">
+<div class="main center" id="wrapper">
 
-    <div style="alignment: center">
-        <div class="column" style=" padding-left :20%; padding-right: 30%; width: 50%">
+    <div class="center">
+        <div class="column" style="width: 600px; margin:0 auto;">
             <h1 style="font-family: Roboto-Light">Log In</h1>
             <hr>
             <div class="row">
@@ -43,11 +38,14 @@
                     <p style="font-family: Roboto;">Password: </p>
                 </div>
                 <div class="column">
-                    <input type="text"class="blockText" style="height: 30px; width: 100%" autofocus id="password"></textarea>
+                    <input type="password" class="blockText" style="height: 30px; width: 100%" autofocus id="password"></textarea>
 
                 </div>
 
-            <button class="block" style="width: 100%"> Log In</button>
+            <button class="block" style="width: 100%" onclick="login()"> Log In</button>
+            <br>
+            <br>
+            <button class="block" style="width: 100%" onclick="window.location.href='register.html'">Don't have an account? Sign up here.</button>
         </div>
 
 
