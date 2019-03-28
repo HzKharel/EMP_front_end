@@ -1,8 +1,5 @@
 function checkSession() {
-    let username = localStorage.getItem("username");
-    if(username !== null){
-        window.location.href='Messenger.html';
-    }
+
 }
 
 function login() {

@@ -1,10 +1,13 @@
 <head>
-    <title>EMP</title>
+    <script type="text/javascript">
+        let username = localStorage.getItem("username");
+        if(username !== null){
+            window.location.href='Messenger.html';
+        }
+    </script>
+    <title>Login</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="scripts/apiScripts/UserPortal.js"></script>
-    <script type="text/javascript">
-        checkSession();
-    </script>
 </head>
 
 <body>

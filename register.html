@@ -1,12 +1,15 @@
 
-
 <head>
-    <title>EMP</title>
+    <script type="text/javascript">
+        let username = localStorage.getItem("username");
+        if(username !== null){
+            window.location.href='Messenger.html';
+        }
+    </script>
+    <title>Register</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="scripts/apiScripts/UserPortal.js"></script>
-    <script type="text/javascript">
-        checkSession();
-    </script>
+
 
 
 </head>
@@ -36,31 +39,31 @@
                 <p style="font-family: Roboto;">User Name: </p>
             </div>
             <div class="column">
-                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="username"></textarea>
+                <input type="text"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="username"></textarea>
             </div>
             <div class="column">
                 <p style="font-family: Roboto;">Password: </p>
             </div>
             <div class="column">
-                <input type="password"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="password"></textarea>
+                <input type="password"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="password"></textarea>
             </div>
             <div class="column">
                 <p style="font-family: Roboto;">First Name: </p>
             </div>
             <div class="column">
-                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="first_name"></textarea>
+                <input type="text"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="first_name"></textarea>
             </div>
             <div class="column">
                 <p style="font-family: Roboto;">Last Name: </p>
             </div>
             <div class="column">
-                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="last_name"></textarea>
+                <input type="text"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="last_name"></textarea>
             </div>
             <div class="column">
                 <p style="font-family: Roboto;">Email: </p>
             </div>
             <div class="column">
-                <input type="text"class="blockText" style="margin-bottom: 30px; height: 30px" autofocus id="email"></textarea>
+                <input type="text"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="email"></textarea>
             </div>
 
         </div>
