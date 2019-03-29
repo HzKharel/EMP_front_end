@@ -1,6 +1,6 @@
-function checkSession() {
-
-}
+window.onload = function () {
+    document.getElementById('loggedas').innerText = `Not ${localStorage.getItem("username")}? Log out.`;
+};
 
 function login() {
     const url = "http://localhost:3000/api/login";

@@ -1,9 +1,5 @@
 contacts = [];
 
-window.onload = function () {
-    document.getElementById('loggedas').innerText = `Not ${localStorage.getItem("username")}? Log out.`;
-};
-
 function getContacts() {
     contacts = [];
     const url = "http://localhost:3000/api/getContacts";
