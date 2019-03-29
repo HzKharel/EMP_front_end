@@ -66,3 +66,32 @@ function getMessages() {
     });
 
 }
+
+function decodeMessage() {
+    let cipher = document.getElementById('dropdownSelector').innerText;
+    let plain_text = document.getElementById('encMessage').value;
+    let key = document.getElementById('decodeKey').value;
+    let cipher_text = document.getElementById('decMessage');
+
+    switch (cipher) {
+        case "ROT 13 Cipher":
+            cipher_text.value = rot13(plain_text, key);
+            break;
+        case "Vignere Cipher":
+            cipher_text.value = vignere(plain_text, key, true);
+            break;
+        case "Autokey Cipher":
+            cipher_text.value = autokey(plain_text, key, true);
+            break;
+        case "Morse Code":
+            cipher_text.value = morsecode(plain_text, true);
+            break;
+        case "Binary":
+            cipher_text = binary(plain_text, true);
+            break;
+        default:
+            cipher_text = plain_text;
+            break;
+    }
+    
+}

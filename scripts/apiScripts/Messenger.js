@@ -154,7 +154,7 @@ function encrypted_message() {
             'encryption_key': key
         };
 
-        alert(messageobj.message);
+
         send(messageobj);
 
     }

@@ -37,13 +37,11 @@
 
 <div class="sidebar">
     <a id="loggedas" onclick="logout()"></a>
-    <hr>
     <a href="index.html">Encoder</a>
     <a href="guesscountry.html">Guess The Country</a>
     <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/report/web_tech_cw1_report.pdf">View Report</a>
-    <hr>
     <a href="Messenger.html">Messenger</a>
-    <a href="inbox.html">Inbox</a>
+    <a href="inbox.html" class="active">Inbox</a>
     <a href="Profile.html">My Profile</a>
 </div>
 <!-- ALL CODE GOES HERE -->
@@ -59,8 +57,30 @@
         <div class="column" style="margin-left: 10%">
             <div id="viewMessage" style="visibility: visible">
                 <textarea rows="10" class="blockText" style="; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);" autofocus id="encMessage" readonly></textarea>
-                <button type="button" class="block" style="margin-top: 10px; width: 100%; margin-bottom: 20px;" id="decodeButton">Decode</button>
-                <textarea rows="10" class="blockText" style="; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);" autofocus readonly id="encMessage"></textarea>
+                <div class="row">
+                    <hr>
+                    <div class="column" style="width: 50%; margin-right: 10%">
+
+                        <div class="dropdown">
+                            <button class="dropbtn" id="dropdownSelector" style="height: 50px">Select Decoder</button>
+                            <div class="dropdown-content">
+
+                                <a href="#" onclick="selected_cipher('rot13');">ROT 13</a>
+                                <a href="#" onclick="selected_cipher('vignere');">Vignere Cipher</a>
+                                <a href="#" onclick="selected_cipher('autokey');">Autokey Cipher</a>
+                                <a href="#" onclick="selected_cipher('morse');">Morse Code</a>
+                                <a href="#" onclick="selected_cipher('binary');">Binary</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column" style="width: 40%">
+                        <input type="text"class="blockText" style="margin-bottom: 30px;height: 30px" autofocus id="decodeKey" maxlength="100" placeholder="Cipher Key (if applicable)"></textarea>
+                    </div>
+                </div>
+                <hr>
+                <button type="button" class="block" style="margin-top: 10px; width: 100%; margin-bottom: 20px;" onclick="decodeMessage()" id="decodeButton">Decode</button>
+                <textarea rows="10" class="blockText" style="; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);" autofocus readonly id="decMessage"></textarea>
 
 
             </div>
