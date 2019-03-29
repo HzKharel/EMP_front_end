@@ -1,7 +1,12 @@
 <head>
-    <title>EMP</title>
+    <title>Encoders</title>
+    <script type="text/javascript">
+        let username = localStorage.getItem("username");
+        if(username === null){
+            window.location.href='Login.html';
+        }
+    </script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-
     <script type="text/javascript" src="scripts/cipher_desc.js"></script>
     <script type="text/javascript" src="scripts/Rot13.js"></script>
     <script type="text/javascript" src="scripts/Autokey.js"></script>
@@ -18,10 +23,15 @@
     </div>
 
     <div class="sidebar">
-        <a class="active" href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/index.html">Encoder</a>
-        <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/guesscountry.html">Guess The Country</a>
+        <a id="loggedas" onclick="logout()"></a>
+        <hr>
+        <a href="index.html">Encoder</a>
+        <a href="guesscountry.html">Guess The Country</a>
         <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/report/web_tech_cw1_report.pdf">View Report</a>
-
+        <hr>
+        <a href="Messenger.html">Messenger</a>
+        <a href="inbox.html">Inbox</a>
+        <a href="Profile.html">My Profile</a>
     </div>
     <!-- ALL CODE GOES HERE -->
     <div class="main" id="wrapper">
