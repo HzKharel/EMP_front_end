@@ -7,6 +7,7 @@ function login() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
 
+
     //posting login data
     fetch(url, {
         method: 'POST',
@@ -22,7 +23,7 @@ function login() {
             window.location.href='Messenger.html';
         }
         else {
-            alert("Incorrect Username or Password");
+            document.getElementById('status').innerText = "Incorrect Username or Password.";
         }
     })
         .catch((err)=>{

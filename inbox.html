@@ -50,7 +50,9 @@
 
     <div class="row">
 
-        <div id = "inboxDisplay" class="column" style="width: 30%; overflow-y: scroll; height:78%;">
+
+        <div id = "inboxDisplay" class="column" style="width: 30%; overflow-y: auto; height:78%;">
+            <h2>Incoming Messages</h2>
 
 
         </div>
@@ -79,7 +81,7 @@
                     </div>
                 </div>
                 <hr>
-                <button type="button" class="block" style="margin-top: 10px; width: 100%; margin-bottom: 20px;" onclick="decodeMessage()" id="decodeButton">Decode</button>
+                <button type="button" class="block" style="margin-top: 10px; width: 100%; margin-bottom: 20px; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);" onclick="decodeMessage()" id="decodeButton">Decode</button>
                 <textarea rows="10" class="blockText" style="; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);" autofocus readonly id="decMessage"></textarea>
 
 

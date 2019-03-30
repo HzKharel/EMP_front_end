@@ -107,12 +107,15 @@ function encrypted_message() {
     let key = document.getElementById("encodedMessageKey").value;
     let plain_text = document.getElementById("encodeField").value;
     let send_to = document.getElementById("SelectedContact").value;
-    plain_text = plain_text.trim();
+    plain_text = plain_text.trim().replace(/(\r\n|\n|\r)/gm, "\\n");
     send_to = send_to.trim();
     let cipher_text = '';
 
     if(plain_text === ''){
         alert("Message Cannot be Empty.");
+    }
+    else if(plain_text.length > 100000){
+        alert("Maximum number of character allowed is 100,000");
     }
     else if(send_to === ''){
         alert("Contact Cannot be Empty.");
