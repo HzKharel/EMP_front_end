@@ -1,7 +1,7 @@
-let messages = [];
-function getMessages() {
-    messages = [];
-    const url = "http://localhost:3000/api/getMessages";
+
+function getMessages(inbox) {
+    let messages = [];
+    const url = `http://localhost:3000/api/getMessages?inbox=${inbox}`;
     const username = localStorage.getItem("username");
     const password = localStorage.getItem("password");
     fetch(url, {
@@ -37,6 +37,10 @@ function getMessages() {
         .finally(function () {
             let colour = '#A9A9A9';
             messages.reverse();
+            let inboxDisp = document.getElementById('inboxDisplay');
+            while (inboxDisp.firstChild) {
+                inboxDisp.removeChild(inboxDisp.firstChild);
+            }
         messages.forEach((m)=>{
             if(colour === '#B8B8B8'){
                 colour = '#A9A9A9';
@@ -53,7 +57,12 @@ function getMessages() {
             let fromContainer = document.createElement('p');
             let dateContainer = document.createElement('p');
 
-            fromContainer.innerText = m.from_user;
+            if(inbox === 'true'){
+                fromContainer.innerText = 'From\t\t' + m.from_user;
+            }
+            else {
+                fromContainer.innerText = 'To\t\t' + m.to_user;
+            }
             dateContainer.innerText = m.sent_date;
 
             container.appendChild(fromContainer);
