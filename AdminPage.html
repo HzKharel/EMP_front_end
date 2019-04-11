@@ -1,0 +1,79 @@
+<head>
+    <script type="text/javascript">
+        let username = localStorage.getItem("username");
+        if (username === null) {
+            window.location.href = 'Login.html';
+        }
+    </script>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript" src="scripts/apiScripts/UserPortal.js"></script>
+    <script type="text/javascript" src="scripts/apiScripts/Admin.js"></script>
+    <script type="text/javascript" src="scripts/apiScripts/profile.js"></script>
+    <script type="text/javascript">
+        checkAdmin();
+    </script>
+
+
+</head>
+
+<body>
+<div class="header" id="myHeader">
+    <h2 align="left" style="font-family: 'Roboto-Light'">Encoded Messaging Platform </h2>
+</div>
+
+<div class="sidebar">
+    <a id="loggedas" onclick="logout()"></a>
+    <a href="index.html">Encoder</a>
+    <a href="guesscountry.html">Guess The Country</a>
+    <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/report/web_tech_cw1_report.pdf">View Report</a>
+    <a href="Messenger.html">Messenger</a>
+    <a href="inbox.html">Inbox</a>
+    <a href="Profile.html">My Profile</a>
+
+</div>
+<!-- ALL CODE GOES HERE -->
+<div class="main" id="wrapper">
+    <h1>Admin Panel</h1>
+    <div class="row">
+        <div class="column">
+            <div class="column">
+                <h3>Current User Count: </h3>
+            </div>
+            <div class="column">
+                <h3 id="currentUserCount">5</h3>
+            </div>
+            <div class="column">
+                <h3>Total Number of Sent Messages: </h3>
+            </div>
+            <div class="column">
+                <h3 id="totalMessages">5</h3>
+            </div>
+
+        </div>
+        <div class="column">
+           <textarea id="username" style="resize: none; width: 100%" placeholder="User Name"></textarea>
+            <br>
+            <hr>
+            <div class="btn-group">
+                <button type="button" style=" margin: 10px; width: 30%" class="block" onclick="">Delete User Account</button>
+                <button type="button" class="block" style=" margin: 10px;  width: 30%" onclick="">Reset User Password</button>
+                <button type="button" class="block" style=" margin: 10px;  width: 30%" onclick="">Make Admin</button>
+            </div>
+            <br>
+            <hr>
+            <h2>Email User</h2>
+            <hr>
+            <textarea id="email_Subject" style="resize: none; width: 100%; margin-bottom: 10px" placeholder="Subject"></textarea>
+            <textarea id="email_content" style="resize: none; width: 100%; margin-bottom: 20px" rows= 10 placeholder="Email Content"></textarea>
+            <button class="block" style="width: 100%">Send</button>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+</body>
