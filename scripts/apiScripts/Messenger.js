@@ -1,10 +1,14 @@
 contacts = [];
 
+
+//A function that gets all the contacts added by the user
 function getContacts() {
     contacts = [];
     const url = "http://localhost:3000/api/getContacts";
     const username = localStorage.getItem("username");
     const password = localStorage.getItem("password");
+
+    //fetching data
     fetch(url, {
         method: 'GET',
         headers: {
@@ -16,6 +20,7 @@ function getContacts() {
         return res.json()
     }).then(data => {
         data.forEach((obj) => {
+            //parsing every json object and pusing it to abn array
             let jsonobj = JSON.parse(JSON.stringify(obj));
             contacts.push(jsonobj.contact_name);
         });
@@ -27,7 +32,7 @@ function getContacts() {
 
 
 }
-
+//function that reacts to changes in the contact search bar, dynamically displays the contacts matching the user keywords
 function contacts_listener() {
     let contactField = document.getElementById('SelectedContact').value;
     let cl = document.getElementById('contactList');
@@ -35,6 +40,8 @@ function contacts_listener() {
         cl.removeChild(cl.firstChild);
     }
     if (contactField.length > 2) {
+
+        //populating the contacts list
         contacts.forEach((c) => {
             if (c.includes(contactField)) {
                 var contact = document.createElement("a");
@@ -51,12 +58,14 @@ function contacts_listener() {
 
 }
 
+//handles adding new contacts to the list
 function add_contact() {
     let contact_id = document.getElementById('addContact').value;
     const url = 'http://localhost:3000/api/addContact';
     const username = localStorage.getItem("username");
     const password = localStorage.getItem("password");
 
+    //calling the api to add the contact
     fetch(url, {
         method: 'POST',
         headers: {
@@ -67,6 +76,7 @@ function add_contact() {
         body: JSON.stringify({'contact': contact_id})
     }).then((res) => {
         res.text().then((text) => {
+            //updating contacts after adding
             getContacts();
             alert(text);
         });
@@ -76,11 +86,12 @@ function add_contact() {
         });
 }
 
+//sending the message from one user to another
 function send(messageobj) {
     const url = 'http://localhost:3000/api/sendMessage';
     const username = localStorage.getItem("username");
     const password = localStorage.getItem("password");
-
+//calling the api
     fetch(url, {
         method: 'POST',
         headers: {
@@ -102,6 +113,7 @@ function send(messageobj) {
 
 }
 
+//function that handles the actual encryption
 function encrypted_message() {
     let cipher = document.getElementById("dropdownSelector").textContent;
     let key = document.getElementById("encodedMessageKey").value;
@@ -110,7 +122,7 @@ function encrypted_message() {
     plain_text = plain_text.trim().replace(/(\r\n|\n|\r)/gm, "\\n");
     send_to = send_to.trim();
     let cipher_text = '';
-
+//couple of checks to see if the data is valid
     if(plain_text === ''){
         alert("Message Cannot be Empty.");
     }
@@ -123,6 +135,7 @@ function encrypted_message() {
     else if(key === '' && (cipher === "Vignere Cipher" || cipher === "Autokey Cipher" )){
         alert("Key Cannot be Empty.");
     }
+    //calling the appropriate cipher
     else {
         switch (cipher) {
             case "ROT 13 Cipher":
@@ -144,6 +157,7 @@ function encrypted_message() {
                 cipher_text = plain_text;
                 break;
         }
+        //building the message object
 
         let messageobj = {
             'from_user': localStorage.getItem('username'),
@@ -153,7 +167,7 @@ function encrypted_message() {
             'encryption_key': key
         };
 
-
+//calling the method that sends  the message to the api
         send(messageobj);
 
     }
@@ -162,6 +176,7 @@ function encrypted_message() {
 
 }
 
+//a simple function to update the text of the slected cipher from the dropdown
 function selected_cipher(passed_cipher) {
     let cipher = document.getElementById("dropdownSelector");
 

@@ -1,9 +1,13 @@
-
+/*
+ * A method that gets all the messages sent to or by the user, depending on the inbox boolean value
+ */
 function getMessages(inbox) {
     let messages = [];
     const url = `http://localhost:3000/api/getMessages?inbox=${inbox}`;
     const username = localStorage.getItem("username");
     const password = localStorage.getItem("password");
+
+    //fetching dat
     fetch(url, {
         method: 'GET',
         headers: {
@@ -12,11 +16,15 @@ function getMessages(inbox) {
             'password': password
         }
     }).then((res) => {
+        //converting data to json format
         return res.json()
     }).then(data => {
+        //going through each jason object in the array
         data.forEach((obj) => {
 
             let jsonobj = JSON.parse(JSON.stringify(obj));
+
+            //building a message object
             let message = {
                 "sent_message": jsonobj.sent_message,
                 "from_user": jsonobj.from_user,
@@ -26,6 +34,7 @@ function getMessages(inbox) {
                 "encryption_key": jsonobj.encryption_key
             };
 
+            //pushing it to an array
             messages.push(message);
 
         });
@@ -36,11 +45,15 @@ function getMessages(inbox) {
         })
         .finally(function () {
             let colour = '#A9A9A9';
+
+            //reversing the array so the newest are at the top
             messages.reverse();
             let inboxDisp = document.getElementById('inboxDisplay');
+            //removing all the clild nodes from the last pull
             while (inboxDisp.firstChild) {
                 inboxDisp.removeChild(inboxDisp.firstChild);
             }
+            //going through every message to add to the list
         messages.forEach((m)=>{
             if(colour === '#B8B8B8'){
                 colour = '#A9A9A9';
@@ -48,6 +61,7 @@ function getMessages(inbox) {
             else {
                 colour = '#B8B8B8';
             }
+            //creating containers to store the message
             let container = document.createElement('div');
             container.style.background = colour;
             container.style.marginBottom = '5px';
@@ -65,9 +79,9 @@ function getMessages(inbox) {
             }
             dateContainer.innerText = m.sent_date;
 
+            //appending child nodes
             container.appendChild(fromContainer);
             container.appendChild(dateContainer);
-
             document.getElementById('inboxDisplay').appendChild(container);
 
         });
@@ -77,12 +91,14 @@ function getMessages(inbox) {
 
 }
 
+//a function that calls an appropriate decoder based on user selection
 function decodeMessage() {
     let cipher = document.getElementById('dropdownSelector').innerText;
     let plain_text = document.getElementById('encMessage').value;
     let key = document.getElementById('decodeKey').value;
     let cipher_text = document.getElementById('decMessage');
 
+    //switching the ciphers to call
     switch (cipher) {
         case "ROT 13 Cipher":
             cipher_text.value = rot13(plain_text, key);
