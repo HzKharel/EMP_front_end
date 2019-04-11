@@ -32,7 +32,7 @@ function getMessages(inbox) {
 
     })
         .catch((err) => {
-            alert(err);
+            alert("An Error Occurred While Connecting to the Server.");
         })
         .finally(function () {
             let colour = '#A9A9A9';

@@ -69,3 +69,29 @@ function logout() {
     localStorage.clear();
     window.location.href='Login.html';
 }
+
+function PasswordReset() {
+    const url = "http://localhost:3000/api/passwordReset";
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    let data = {
+        "username" : username,
+        "email" : email
+    };
+    //posting login data
+    fetch(url, {
+        method: 'POST',
+        body: data
+    }).then((res)=>{
+        if(res.status === 200){
+            document.getElementById('status').innerText = "Password Reset Instructions Sent. Check Your Email.";
+        }
+        else {
+            document.getElementById('status').innerText = "Your email or username don't match.";
+        }
+    })
+        .catch((err)=>{
+            alert(err);
+        });
+
+}

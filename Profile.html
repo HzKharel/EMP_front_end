@@ -1,5 +1,4 @@
 
-
 <head>
     <script type="text/javascript">
         let username = localStorage.getItem("username");
@@ -7,15 +6,13 @@
             window.location.href='Login.html';
         }
     </script>
-    <title>Messenger</title>
+    <title>Register</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script type="text/javascript" src="scripts/cipher_desc.js"></script>
-    <script type="text/javascript" src="scripts/Rot13.js"></script>
-    <script type="text/javascript" src="scripts/Autokey.js"></script>
-    <script type="text/javascript" src="scripts/VignereCipher.js"></script>
-    <script type="text/javascript" src="scripts/morsecode.js"></script>
-    <script type="text/javascript" src="scripts/binary.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/apiScripts/UserPortal.js"></script>
+    <script type="text/javascript" src="scripts/apiScripts/profile.js"></script>
+    <script>fetchDetails()</script>
+
+
 
 </head>
 
@@ -31,13 +28,62 @@
     <a href="https://hzkharel.github.io/Kharel_Hari_Webtech_coursework1/report/web_tech_cw1_report.pdf">View Report</a>
     <a href="Messenger.html">Messenger</a>
     <a href="inbox.html">Inbox</a>
-    <a href="Profile.html" class="active">My Profile</a>
+    <a href="Profile.html">My Profile</a>
+
 </div>
 <!-- ALL CODE GOES HERE -->
 <div class="main" id="wrapper">
 
+    <div class="center">
+        <h1 style="font-family: Roboto-Light">Update Details</h1>
+        <hr>
+        <div class="row">
+            <div class="column">
+                <p style="font-family: Roboto;">User Name: </p>
+            </div>
+            <div class="column">
+                <input type="text"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="username" disabled></textarea>
+            </div>
+            <div class="column">
+                <p style="font-family: Roboto;">First Name: </p>
+            </div>
+            <div class="column">
+                <input type="text"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="first_name"></textarea>
+            </div>
+            <div class="column">
+                <p style="font-family: Roboto;">Last Name: </p>
+            </div>
+            <div class="column">
+                <input type="text"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="last_name"></textarea>
+            </div>
+            <div class="column">
+                <p style="font-family: Roboto;">Email: </p>
+            </div>
+            <div class="column">
+                <input type="text"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="email"></textarea>
+            </div>
 
-
+        </div>
+        <hr>
+        <br>
+        <div class="column">
+            <p style="font-family: Roboto;">New Password: </p>
+        </div>
+        <div class="column">
+            <input type="password"class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="password"></textarea>
+        </div>
+        <br>
+        <div class="column">
+            <p style="font-family: Roboto;">Current Password: </p>
+        </div>
+        <div class="column">
+            <input type="password" class="blockText" style="margin-bottom: 15px; height: 30px" autofocus id="currentPassword"></textarea>
+        </div>
+        <button class="block" style="width: 100%" onclick="checkpswrd()"> Update Details </button>
+        <p style="font-family: Roboto;" id="status"></p>
+    </div>
 </div>
+</div>
+
 
 </body>
