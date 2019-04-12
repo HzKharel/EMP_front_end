@@ -110,3 +110,23 @@ function PasswordReset() {
         });
 
 }
+
+//delete Account
+function delete_account() {
+
+    const url = "http://localhost:3000/api/deleteUser";
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+
+    fetch(url, {
+        method: 'POST'
+    }).then((res)=>{
+       if(res.status === 200){
+           alert("Account Deleted Successfully, You will now be logged out.");
+       }
+       else {
+           alert("Error Deleting your Account.");
+       }
+    });
+
+}
