@@ -115,18 +115,24 @@ function PasswordReset() {
 function delete_account() {
 
     const url = "http://localhost:3000/api/deleteUser";
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
+    const username = localStorage.getItem("username");
+    const password = localStorage.getItem("password");
 
     fetch(url, {
-        method: 'POST'
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'username': username,
+            'password': password
+        }
     }).then((res)=>{
        if(res.status === 200){
            alert("Account Deleted Successfully, You will now be logged out.");
+           localStorage.clear();
+           location.reload();
        }
        else {
            alert("Error Deleting your Account.");
        }
     });
-
 }

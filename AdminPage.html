@@ -5,7 +5,7 @@
             window.location.href = 'Login.html';
         }
     </script>
-    <title>Register</title>
+    <title>Admin Panel</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="scripts/apiScripts/UserPortal.js"></script>
     <script type="text/javascript" src="scripts/apiScripts/Admin.js"></script>
@@ -41,32 +41,34 @@
                 <h3>Current User Count: </h3>
             </div>
             <div class="column">
-                <h3 id="currentUserCount">5</h3>
+                <h3 id="currentUserCount">0</h3>
             </div>
             <div class="column">
                 <h3>Total Number of Sent Messages: </h3>
             </div>
             <div class="column">
-                <h3 id="totalMessages">5</h3>
+                <h3 id="totalMessages">0</h3>
             </div>
 
         </div>
         <div class="column">
-           <textarea id="username" style="resize: none; width: 100%" placeholder="User Name"></textarea>
+           <textarea id="actionusername" style="resize: none; width: 100%" placeholder="User Name"></textarea>
             <br>
             <hr>
             <div class="btn-group">
-                <button type="button" style=" margin: 10px; width: 30%" class="block" onclick="">Delete User Account</button>
-                <button type="button" class="block" style=" margin: 10px;  width: 30%" onclick="">Reset User Password</button>
-                <button type="button" class="block" style=" margin: 10px;  width: 30%" onclick="">Make Admin</button>
+                <button type="button" style=" margin: 10px; width: 92.5%" class="block" onclick="delete_user_account()">Delete User Account</button>
+            </div>
+            <div class="btn-group">
+            <button type="button" class="block" style=" margin: 10px;  width: 45%" onclick="make_admin(1)">Make Admin</button>
+            <button type="button" class="block" style=" margin: 10px;  width: 45%" onclick="make_admin(0)">Remove Admin</button>
             </div>
             <br>
             <hr>
             <h2>Email User</h2>
             <hr>
             <textarea id="email_Subject" style="resize: none; width: 100%; margin-bottom: 10px" placeholder="Subject"></textarea>
-            <textarea id="email_content" style="resize: none; width: 100%; margin-bottom: 20px" rows= 10 placeholder="Email Content"></textarea>
-            <button class="block" style="width: 100%">Send</button>
+            <textarea id="email_Content" style="resize: none; width: 100%; margin-bottom: 20px" rows= 10 placeholder="Email Content"></textarea>
+            <button class="block" style="width: 100%" onclick="admin_email()">Send</button>
             </div>
 
 

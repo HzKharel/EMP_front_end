@@ -24,6 +24,10 @@ function fetchDetails() {
             document.getElementById('first_name').value = jsonobj.First_Name;
             document.getElementById('last_name').value = jsonobj.Last_Name;
             document.getElementById('email').value = jsonobj.Email;
+            const admin = jsonobj.Admin;
+            if(admin === 1){
+                document.getElementById('adminbutton').style.visibility = 'visible';
+            }
         })
         .catch((err)=>{
             alert(err);

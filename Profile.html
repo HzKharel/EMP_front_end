@@ -6,7 +6,7 @@
             window.location.href='Login.html';
         }
     </script>
-    <title>Register</title>
+    <title>Profile</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="scripts/apiScripts/UserPortal.js"></script>
     <script type="text/javascript" src="scripts/apiScripts/profile.js"></script>
@@ -82,6 +82,8 @@
         <button class="block" style="width: 100%" onclick="checkpswrd()"> Update Details </button>
         <br>
         <button class="block" style="width: 100%" onclick="delete_account()"> Delete Account</button>
+        <br>
+        <button id = "adminbutton" class="block" style="width: 100%; visibility: hidden" onclick="location.href = 'AdminPage.html'"> View Admin Control Panel</button>
         <p style="font-family: Roboto;" id="status"></p>
     </div>
 </div>
